@@ -6,7 +6,7 @@ class TestRoom(unittest.TestCase):
         self.room = Room('Room 1', 24, 'Large Room')
 
     def test_room_has_name(self):
-        self.assertEqual('Room 1', self.room.name)
+        self.assertEqual('Room 1', self.room.room_name)
 
     def test_room_has_capacity(self):
         self.assertEqual(24, self.room.capacity)
