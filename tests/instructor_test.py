@@ -14,7 +14,7 @@ class TestInstructorDetails(unittest.TestCase):
         self.assertEqual('Jones', self.instructor.last_name)
 
     def test_instructor_has_date_of_birth(self):
-        self.assertEqual('1992-3-12', str(self.instructor.date_of_birth))
+        self.assertEqual('1992-03-12', str(self.instructor.date_of_birth))
 
 class TestInstructorSchedule(unittest.TestCase):
 
