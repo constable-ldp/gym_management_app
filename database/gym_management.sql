@@ -14,7 +14,9 @@ CREATE TABLE members (
     phone VARCHAR(30),
     date_of_birth DATE,
     membership BOOLEAN,
-    premier BOOLEAN
+    premier BOOLEAN,
+    member_since DATE,
+    member_until DATE
 );
 
 CREATE TABLE rooms (
