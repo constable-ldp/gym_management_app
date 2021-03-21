@@ -9,7 +9,7 @@ class TestGymClass(unittest.TestCase):
                                   30, 60, 4, 16)
 
     def test_class_has_name(self):
-        self.assertEqual('Hot Yoga', self.gym_class.name)
+        self.assertEqual('Hot Yoga', self.gym_class.class_name)
 
     def test_class_has_description(self):
         self.assertEqual('Vigorous form of yoga performed in a very warm studio', 

@@ -6,5 +6,5 @@ classes_blueprint = Blueprint('classes', __name__)
 
 @classes_blueprint.route('/classes')
 def classes():
-    classes = class_repository.select_all90
+    classes = class_repository.select_all()
     return render_template('classes/index.html', classes=classes)

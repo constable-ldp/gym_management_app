@@ -28,11 +28,12 @@ CREATE TABLE rooms (
 
 CREATE TABLE classes (
     id SERIAL PRIMARY KEY,
+    class_name VARCHAR(255),
     description VARCHAR(255),
     min_capacity INT,
     max_capacity INT,
-    min_time TIME,
-    max_time TIME
+    min_time INT,
+    max_time INT
 );
 
 CREATE TABLE instructor_details (
