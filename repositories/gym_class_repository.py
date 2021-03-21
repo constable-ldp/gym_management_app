@@ -31,8 +31,9 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
-        gym_class = GymClass(result['name'], result['description'], result['min_time'], \
-                   result['max_time'], result['min_capacity'], result['max_capacity'])
+        gym_class = GymClass(result['name'], result['description'], result['min_time'], 
+                             result['max_time'], result['min_capacity'], 
+                             result['max_capacity'], result['id'])
     return gym_class
 
 
@@ -45,7 +46,7 @@ def update(gym_class):
                  min_capacity = %s,
                  max_capacity= %s
              WHERE id = %s"""
-    values = [gym_class.name, gym_class.description, gym_class.min_time, gym_class.max_time, \
+    values = [gym_class.name, gym_class.description, gym_class.min_time, gym_class.max_time,
               gym_class.min_capacity, gym_class.max_capacity, gym_class.id]
     run_sql(sql, values)
 
