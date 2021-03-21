@@ -44,6 +44,7 @@ def update(gym_class):
              WHERE id = %s"""
     values = [gym_class.name, gym_class.description, gym_class.min_time, gym_class.max_time, \
               gym_class.min_capacity, gym_class.max_capacity, gym_class.id]
+    run_sql(sql, values)
 
 def delete_all():
     sql = "DELETE FROM classes"
