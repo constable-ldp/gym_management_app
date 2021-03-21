@@ -1,6 +1,7 @@
 class Member:
-    
-    def __init__(self, first_name, last_name, email, phone, date_of_birth, membership, premium = False):
+
+    def __init__(self, first_name, last_name, email, phone, date_of_birth, 
+                 membership, premium = False, member_since = None, member_until = None):
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
@@ -8,3 +9,5 @@ class Member:
         self.date_of_birth = date_of_birth
         self.membership = membership
         self.premium = premium
+        self.member_since = member_since
+        self.member_until = member_until

@@ -5,7 +5,9 @@ from models.member import Member
 class TestMember(unittest.TestCase):
 
     def setUp(self):
-        self.member = Member('John', 'Smith', 'johnsmith@gmail.com', '07595964019', datetime.date(1997, 5, 17), True, False)
+        self.member = Member('John', 'Smith', 'johnsmith@gmail.com', '07595964019', 
+                             datetime.date(1997, 5, 17), True, False, datetime.date(2021, 3, 21),
+                             datetime.date(2021, 4, 21))
 
     def test_member_has_first_name(self):
         self.assertEqual('John', self.member.first_name)
@@ -27,3 +29,9 @@ class TestMember(unittest.TestCase):
 
     def test_member_has_premium(self):
         self.assertEqual(False, self.member.premium)
+
+    def test_member_has_member_since(self):
+        self.assertEqual('2021-03-21', str(self.member.member_since))
+
+    def test_member_has_member_until(self):
+        self.assertEqual('2021-04-21', str(self.member.member_until))
