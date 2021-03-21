@@ -54,14 +54,14 @@ CREATE TABLE instructor_schedules (
     sunday BOOLEAN,
     start_time TIME,
     end_time TIME,
-    instructor_id INT REFERENCES instructor(id)
+    instructor_id INT REFERENCES instructor_details(id)
 );
 
 CREATE TABLE schedules (
     id SERIAL PRIMARY KEY,
-    class_date DATETIME,
+    class_date DATE,
     length_mins int,
-    instructor_id INT REFERENCES instructor(id),
+    instructor_id INT REFERENCES instructor_details(id),
     class_id INT REFERENCES classes(id),
     room_id INT REFERENCES rooms(id)
 );
