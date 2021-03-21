@@ -19,12 +19,16 @@ class TestInstructorDetails(unittest.TestCase):
 class TestInstructorSchedule(unittest.TestCase):
 
     def setUp(self):
+        self.instructor_dets = InstructorDetails('Mary', 'Jones', datetime.date(1992, 3, 12))
         self.instructor = InstructorSchedule(datetime.date(2021, 3, 22), True, True, True, 
                                              True, True, False, False, datetime.time(9, 0), 
-                                             datetime.time(17, 0))
+                                             datetime.time(17, 0), self.instructor_dets)
     
     def test_instructor_has_week_start_date(self):
         self.assertEqual('2021-03-22', str(self.instructor.week_start_date))
+
+    def test_instructor_has_instructor(self):
+        self.assertEqual('Mary', self.instructor.instructor.first_name)
 
     def test_instructor_has_day(self):
         self.assertEqual(True, self.instructor.monday)
