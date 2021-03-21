@@ -5,7 +5,7 @@ def save(member):
     sql = """INSERT INTO members
              (first_name, last_name, email, phone, date_of_birth, 
              membership, premium, member_since, member_until) 
-             VALUES ( %s, %s, %s, %s, %s, %s , %s, %s, %s) 
+             VALUES ( %s, %s, %s, %s, %s, %s , %s, %s, %s ) 
              RETURNING id"""
     values = [member.first_name, member.last_name, member.email, member.phone, 
               member.membership, member.premium, member.member_since, member.member_until]
