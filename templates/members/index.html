@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>D.O.B</th>
+            <th>Member</th>
+            <th>Member Since</th>
+            <th>Member Until</th>
+            <th>Premium</th>
+        </tr>
+        {% for member in members %}
+        <tr>
+            <div class='member_name'>
+                <td>
+                    <a href="/members/{{member.member_id}}">{{member.first_name}} {{member.last_name}}</a>
+                </td>
+            </div>
+            <td>{{member.date_of_birth}}</td>
+            <td>{{member.membership}}</td> 
+            <td>{{member.member_since}}</td>
+            <td>{{member.member_until}}</td>
+            <td>{{member.member_until}}</td>
+        </tr>
+        {% endfor %}
