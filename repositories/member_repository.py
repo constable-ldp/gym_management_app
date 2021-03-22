@@ -13,7 +13,6 @@ def save(member):
     member.id = results[0]['id']
     return member
 
-
 def select_all():
     members = []
     sql = "SELECT * FROM members"
@@ -24,7 +23,6 @@ def select_all():
                         row['member_since'], row['member_until'], row['id'])
         members.append(member)
     return members
-
 
 def select(id):
     member = None
@@ -37,7 +35,6 @@ def select(id):
                         result['premium'], result['member_since'], result['member_until'], 
                         result['id'])
     return member
-
 
 def update(member):
     sql = """UPDATE members

@@ -11,7 +11,6 @@ def save(room):
     room.id = results[0]['id']
     return room
 
-
 def select_all():
     rooms = []
     sql = "SELECT * FROM rooms"
@@ -21,6 +20,14 @@ def select_all():
         rooms.append(room)
     return room
 
+def select(id):
+    room = None
+    sql = "SELECT * FROM rooms WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    if result is not None:
+        room = Room(result['room_name'], result['capacity'], result['description'], result['id'])
+    return room
 
 def update(room):
     sql = """UPDATE rooms

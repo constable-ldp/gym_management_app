@@ -11,6 +11,15 @@ def save(instructor):
     instructor.id = results[0]['id']
     return instructor
 
+def select(id):
+    instructor = None
+    sql = "SELECT * FROM instructor_details WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    if result is not None:
+        instructor = InstructorDetails(result['first_name'], result['last_name'], 
+                                       result['date_of_birth'], result['id'])
+    return instructor
 
 def select_all():
     instructors = []

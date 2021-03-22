@@ -12,7 +12,6 @@ def save(gym_class):
     gym_class.id = results[0]['id']
     return gym_class
 
-
 def select_all():
     gym_classes = []
     sql = "SELECT * FROM classes"
@@ -24,7 +23,6 @@ def select_all():
         gym_classes.append(gym_class)
     return gym_classes
 
-
 def select(id):
     gym_class = None
     sql = "SELECT * FROM classes WHERE id = %s"
@@ -35,7 +33,6 @@ def select(id):
                              result['max_time'], result['min_capacity'], 
                              result['max_capacity'], result['id'])
     return gym_class
-
 
 def update(gym_class):
     sql = """UPDATE classes
