@@ -1,0 +1,13 @@
+tr:hover { background: #ddd; }
+
+td { border: 1px solid #000; border-collapse: collapse; }
+
+td a { display: block; padding: 5px 20px; }
+
+input[type=checkbox]:checked + .collapse {
+    display: block;
+}
+
+.collapse {
+    display: none;
+}
