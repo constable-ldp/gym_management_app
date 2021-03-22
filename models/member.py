@@ -11,3 +11,4 @@ class Member:
         self.premium = premium
         self.member_since = member_since
         self.member_until = member_until
+        self.id = id

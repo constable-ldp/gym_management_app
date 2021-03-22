@@ -6,3 +6,4 @@ class Schedule:
         self.instructor = instructor
         self.gym_class = gym_class
         self.room = room
+        self.id = id

@@ -5,11 +5,11 @@ def save(member):
     sql = """INSERT INTO members
              (first_name, last_name, email, phone, date_of_birth, 
              membership, premium, member_since, member_until) 
-             VALUES ( %s, %s, %s, %s, %s, %s , %s, %s, %s ) 
+             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) 
              RETURNING id"""
-    values = [member.first_name, member.last_name, member.email, member.phone, 
+    values = [member.first_name, member.last_name, member.email, member.phone, member.date_of_birth,
               member.membership, member.premium, member.member_since, member.member_until]
-    results = run_sql( sql, values )
+    results = run_sql(sql, values)
     member.id = results[0]['id']
     return member
 
@@ -49,7 +49,7 @@ def update(member):
                  member_until = %s
              WHERE id = %s"""
     values = [member.first_name, member.last_name, member.email, member.phone, 
-              member.membership, member.premium, member.member_since, member.member_until
+              member.membership, member.premium, member.member_since, member.member_until,
               member.id]
     run_sql(sql, values)
 

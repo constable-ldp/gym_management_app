@@ -4,6 +4,7 @@ class InstructorDetails:
         self.first_name = first_name
         self.last_name = last_name
         self.date_of_birth = date_of_birth
+        self.id = id
 
 class InstructorSchedule:
 
@@ -20,3 +21,4 @@ class InstructorSchedule:
         self.start_time = start_time
         self.end_time = end_time
         self.instructor = instructor
+        self.id = id

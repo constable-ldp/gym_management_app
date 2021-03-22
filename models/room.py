@@ -4,3 +4,4 @@ class Room:
         self.room_name = room_name
         self.capacity = capacity
         self.description = descripton
+        self.id = id

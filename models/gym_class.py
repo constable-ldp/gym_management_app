@@ -8,3 +8,4 @@ class GymClass:
         self.max_time = max_time
         self.min_capacity = min_capacity
         self.max_capacity = max_capacity
+        self.id = id
