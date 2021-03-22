@@ -1,14 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-{{member.first_name}} 
-{{member.last_name}}
-{{member.date_of_birth}}
-{{member.membership}}
-{{member.member_since}}
-{{member.member_until}}
-{{member.member_premium}}
-<form action="/members" method="post">
+<form action="/members/{{member.id}}" method="post">
     <div>
         <label for="first_name">First Name:</label>
         <input type="text" name="first_name" id="first_name" value="{{member.first_name}}">
@@ -20,6 +13,13 @@
     <div>
         <label for="date_of_birth">Date of Birth:</label>
         <input type="date" name="date_of_birth" id="date_of_birth" value="{{member.date_of_birth}}">
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" value="{{member.email}}">
+    <div>
+        <label for="phone">Phone Number</label>
+        <input type="tel" name="phone" id="phone" value="{{member.phone}}">
     </div>
         <label for="membership">Member:</label>
         <input type="checkbox" name="membership" id="membership" {% if member.membership %} checked {% endif %}>

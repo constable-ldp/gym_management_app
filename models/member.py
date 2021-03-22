@@ -1,6 +1,6 @@
 class Member:
 
-    def __init__(self, first_name, last_name, email, phone, date_of_birth, membership,
+    def __init__(self, first_name, last_name, email, phone, date_of_birth, membership=False,
                  premium=False, member_since=None, member_until=None, id=None):
         self.first_name = first_name
         self.last_name = last_name
