@@ -3,11 +3,11 @@ from models.instructor import InstructorSchedule
 
 def save(instructor):
     sql = """INSERT INTO instructor_schedules
-             (week_start_date, monday, tuesday, wednesday, thursday, friday,
+             (nickname, monday, tuesday, wednesday, thursday, friday,
               starturday, sunday, start_time, end_time, instructor_id) 
              VALUES ( %s, %s, %s ) 
              RETURNING id"""
-    values = [instructor.week_start_date, instructor.monday, instructor.tuesday,
+    values = [instructor.nickname, instructor.monday, instructor.tuesday,
               instructor.wednesday, instructor.thursday, instructor.friday, 
               instructor.saturday, instructor.sunday, instructor.start_time,
               instructor.end_time, instructor.instructor.id]

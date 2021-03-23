@@ -58,7 +58,7 @@ CREATE TABLE instructor_schedules (
     end_time TIME
 );
 
-CREATE TABLE instructor_timetable (
+CREATE TABLE instructor_timetables (
     id SERIAL PRIMARY KEY,
     week_start DATE,
     i_details_id INT REFERENCES instructor_details(id) ON DELETE CASCADE,
