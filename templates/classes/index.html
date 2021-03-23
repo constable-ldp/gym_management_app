@@ -2,9 +2,18 @@
 {% block content %}
 
 {%for class in classes%}
-
-    <h2>{{class.class_name}}</h2>
-
+    <section>
+        {{class.class_name}}
+    </section>
+    <section>
+        {{class.min_time}} - {{class.max_time}} minutes
+    </section>
+    <section>
+        {{class.min_capacity}} - {{class.max_capacity}} people
+    </section>
+    <section>
+        {{class.description}}
+    </section>
 {%endfor%}
 
 {% endblock %}
