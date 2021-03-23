@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add a Timetable</h1>
+
+<form action="/instructors/new_timetable" method="post">
+    <label for="instructor">Select an instructor:</label>
+    <select name="instructor_id" id="instructor">
+        {% for instructor in instructors %}
+            <option value="{{ instructor.id }}">{{ instructor.first_name }} {{ instructor.last_name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="schedule">Select a scheudle:</label>
+    <select name="scheudle_id" id="schedule">
+        {% for schedule in schedules %}
+            <option value="{{ schedule.id }}">{{ schedule.nickname }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="start_date">Add Start Week:</label>
+    <input type="date" name="start_date" id="start_date" list="saturdays">
+    <datalist id="saturdays">
+        <option>2021-03-26</option>
+        <option>2021-04-03</option>
+        <option>2021-04-10</option>
+    </datalist>
+
+    <section>
+        <input type="submit" value="Add Room">
+    </section>
+
+</form>
+
+{% endblock %}

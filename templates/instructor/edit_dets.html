@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/instructors/{{instructor_details.id}" method="post">
+    <section>
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name" required>
+    </section>   
+    <section>
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" id="last_name" required>
+    </section>
+    <section>
+        <label for="date_of_birth">Date of Birth:</label>
+        <input type="date_of_birth" name="date_of_birth" id="date_of_birth" required>
+    </section>
+    <section>
+        <input type="submit" value="Add Instructor">
+    </section>
+</form>
+
+{% endblock %}

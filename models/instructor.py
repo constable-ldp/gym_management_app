@@ -8,9 +8,9 @@ class InstructorDetails:
 
 class InstructorSchedule:
 
-    def __init__(self, week_start_date, monday, tuesday, wednesday, thursday, friday, 
+    def __init__(self, nickname, monday, tuesday, wednesday, thursday, friday, 
                  saturday, sunday, start_time, end_time, instructor, id=None):
-        self.week_start_date = week_start_date
+        self.nickname = nickname
         self.monday = monday
         self.tuesday = tuesday
         self.wednesday = wednesday
@@ -22,8 +22,8 @@ class InstructorSchedule:
         self.end_time = end_time
         self.id = id
 
-class InstructorSchDets:
-    
+class InstructorTimetable:
+
     def __init__(self, week_start_date, detail, schedule, id=None):
         self.week_start_date = week_start_date
         self.detail = detail

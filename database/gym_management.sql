@@ -42,11 +42,11 @@ CREATE TABLE instructor_details (
     first_name VARCHAR(255),
     last_name VARCHAR(255),
     date_of_birth DATE
-    instructor_sch_id INT REFERENCES instructor_schedules(id)
 );
 
 CREATE TABLE instructor_schedules (
     id SERIAL PRIMARY KEY,
+    nickname VARCHAR(255),
     monday BOOLEAN,
     tuesday BOOLEAN,
     wednesday BOOLEAN,
@@ -55,10 +55,10 @@ CREATE TABLE instructor_schedules (
     saturday BOOLEAN,
     sunday BOOLEAN,
     start_time TIME,
-    end_time TIME,
+    end_time TIME
 );
 
-CREATE TABLE instructor_schedules_details (
+CREATE TABLE instructor_timetable (
     id SERIAL PRIMARY KEY,
     week_start DATE,
     i_details_id INT REFERENCES instructor_details(id) ON DELETE CASCADE,

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/instructors/{{instructor_schedule.id}}" method="post">
+    <section>
+        <label for="name">Nickname:</label>
+        <input type="text" name="name" id="name" value="{{instructor_schedule.nickname}}" required>
+    </section>   
+    <section>
+        <label for="monday">Monday:</label>
+        <input type="checkbox" name="monday" id="monday">
+    </section>
+    <section>
+        <label for="tuesday">Tuesday:</label>
+        <input type="checkbox" name="tuesday" id="tuesday">
+    </section>
+    <section>
+        <label for="wednesday">Wednesday:</label>
+        <input type="checkbox" name="wednesday" id="wednesday">
+    </section>
+    <section>
+        <label for="thursday">Thursday:</label>
+        <input type="checkbox" name="thursday" id="thursday">
+    </section>
+    <section>
+        <label for="friday">Friday:</label>
+        <input type="checkbox" name="friday" id="friday">
+    </section>
+    <section>
+        <label for="saturday">Saturday:</label>
+        <input type="checkbox" name="saturday" id="saturday">
+    </section>
+    <section>
+        <label for="sunday">Sunday:</label>
+        <input type="checkbox" name="sunday" id="sunday">
+    </section>
+    <section>
+        <label for="start_time">Start Time:</label>
+        <input type="time" name="start_time" id="start_time" value="{{instructor_schedule.start_time}}" required>
+    </section>
+    <section>
+        <label for="end_time">End Time:</label>
+        <input type="time" name="end_time" id="end_time" value="{{instructor_schedule.end_time}}" required>
+    </section>
+    <section>
+        <input type="submit" value="Add Room">
+    </section>
+</form>
+
+{% endblock %}
