@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/members/new" method="post">
+    <div>
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name" required>
+    </div>
+    <div>
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" id="last_name" required">
+    </div>
+    <div>
+        <label for="date_of_birth">Date of Birth:</label>
+        <input type="date" name="date_of_birth" id="date_of_birth" required>
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="example@email.com">
+    <div>
+        <label for="phone">Phone Number</label>
+        <input type="tel" name="phone" id="phone" placeholder="07590964012">
+    </div>
+        <label for="membership">Member:</label>
+        <input type="checkbox" name="membership" id="membership" >
+    <div class=collapse>
+        <div>
+            <label for="member_since">Member Since:</label>
+            <input type="date" name="member_since" id="member_since">
+        </div>
+        <div>
+            <label for="member_until"> Member Until:</label>
+            <input type="date" name="member_until" id="member_until">
+        </div>
+        <div>
+            <label for="premium">Premium:</label>
+            <input type="checkbox" name="premium" id="premium">
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Add Member">
+    </div>
+</form> 
+
+{% endblock %}
