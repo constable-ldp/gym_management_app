@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+{%for room in rooms%}
+    <section>
+        {{room.room_name}}
+    </section>
+    <section>
+        {{room.description}}
+    </section>
+    <section>
+        {{room.capacity}}
+    </section>
+    <section>
+        <a href="/rooms/{{room.id}}">Edit</a>
+    </section>
+    <section>
+        <form action="/rooms/{{room.id}}/delete" method="POST">
+            <input room="delete" type="submit" value="delete" />
+        </form>
+    </section>
+{%endfor%}
+
+{% endblock %}

@@ -4,10 +4,11 @@ from models.room import Room
 def save(room):
     sql = """INSERT INTO rooms
              (room_name, capacity, description)
-             VALUES ( %s, %s, %s ) 
+             VALUES (%s, %s, %s) 
              RETURNING id"""
     values = [room.room_name, room.capacity, room.description]
-    results = run_sql( sql, values )
+    results = run_sql(sql, values)
+    print(results)
     room.id = results[0]['id']
     return room
 
@@ -16,9 +17,9 @@ def select_all():
     sql = "SELECT * FROM rooms"
     results = run_sql(sql)
     for row in results:
-        room = Room(row['room_name'], row['capacity'], row['descripton'], row['id'])
+        room = Room(row['room_name'], row['capacity'], row['description'], row['id'])
         rooms.append(room)
-    return room
+    return rooms
 
 def select(id):
     room = None

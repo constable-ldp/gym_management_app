@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/rooms/new" method="post">
+    <section>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
+    </section>   
+    <section>
+        <label for="capacity">Capacity:</label>
+        <input type="number" name="capacity" id="capacity" min="0" required>
+    </section>
+    <section>
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description" required>
+    </section>
+    <section>
+        <input type="submit" value="Add Room">
+    </section>
+</form>
+
+{% endblock %}
