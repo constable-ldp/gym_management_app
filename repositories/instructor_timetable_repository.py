@@ -7,9 +7,9 @@ import repositories.instructor_schedule_repository as schedule_repository
 def save(timetable):
     sql = """INSERT INTO instructor_timetables ( week_start, i_details_id, i_schedules_id ) 
     VALUES ( %s, %s, %s ) RETURNING id"""
-    values = [instructor.week_start_date.id, instructor.detail.id, instructor.schedule.id]
+    values = [timetable.week_start_date, timetable.detail.id, timetable.schedule.id]
     results = run_sql( sql, values )
-    visit.id = results[0]['id']
+    timetable.id = results[0]['id']
     return timetable
 
 
@@ -18,10 +18,10 @@ def select_all():
     sql = "SELECT * FROM instructor_timetables"
     results = run_sql(sql)
     for row in results:
-        deatil = details_repository.select(row['i_details_id'])
+        detail = details_repository.select(row['i_details_id'])
         schedule = schedule_repository.select(row['i_schedules_id'])
         timetable = InstructorTimetable(row['week_start'], detail, schedule, row['id'])
-        visits.append(visit)
+        timetables.append(timetable)
     return timetables
 
 def delete_all():

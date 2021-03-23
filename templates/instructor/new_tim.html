@@ -11,8 +11,8 @@
         {% endfor %}
     </select>
 
-    <label for="schedule">Select a scheudle:</label>
-    <select name="scheudle_id" id="schedule">
+    <label for="schedule">Select a schedule:</label>
+    <select name="schedule_id" id="schedule">
         {% for schedule in schedules %}
             <option value="{{ schedule.id }}">{{ schedule.nickname }}</option>
         {% endfor %}

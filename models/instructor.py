@@ -9,7 +9,7 @@ class InstructorDetails:
 class InstructorSchedule:
 
     def __init__(self, nickname, monday, tuesday, wednesday, thursday, friday, 
-                 saturday, sunday, start_time, end_time, instructor, id=None):
+                 saturday, sunday, start_time, end_time, id=None):
         self.nickname = nickname
         self.monday = monday
         self.tuesday = tuesday

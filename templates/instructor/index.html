@@ -16,11 +16,12 @@
         </tr>
         {% for instructor in instructors %}
         <tr>
+            <td> {{instructor.detail.first_name}}</td>
             <td>
-                <a href="/instructors/details/{{instructor.details.id}}">{{instructor.first_name}} {{instructor.last_name}}</a>
+                <a href="/instructors/details/{{instructor.detail.id}}">{{instructor.first_name}} {{instructor.last_name}}</a>
             </td>
             <td class="hidden">
-                <form action="/instructors/details/{{instructor.details.id}}" method="POST">
+                <form action="/instructors/details/{{instructor.id}}" method="POST">
                     <input class="delete" type="submit" value="delete" />
                 </form>
             </td>
