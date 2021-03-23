@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add a Lesson</h1>
+
+<form action="/schedule/new" method="post">
+
+    <label for="class_date"></label>
+    <input type="date" name="class_date" id="class_date" required>
+
+    <label for="start_time"></label>
+    <input type="time" name="start_time" id="start_time" required>
+
+    <label for="length_mins"></label>
+    <input type="number" name="length_mins" id="length_mins" required>
+
+    <label for="instructor">Select an instructor:</label>
+    <select name="instructor_id" id="instructor">
+        {% for instructor in instructors %}
+            <option value="{{ instructor.id }}">{{ instructor.first_name }} {{ instructor.last_name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="gym_class">Select a class:</label>
+    <select name="class_id" id="gym_class">
+        {% for class in classes %}
+            <option value="{{ class.id }}">{{ class.class_name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="room">Select a room:</label>
+    <select name="room_id" id="room">
+        {% for room in rooms %}
+            <option value="{{ room.id }}">{{ room.room_name }}</option>
+        {% endfor %}
+    </select>
+
+    <section>
+        <input type="submit" value="Add Lesson">
+    </section>
+
+</form>
+
+{% endblock %}

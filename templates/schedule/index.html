@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
+
+<a href="/schedule/new">Add Class</a>
+
+
 <table>
     <thead>
         <tr>
             <th>
-                <span class="day">{{today}}</span>
+                <span>{{today}}</span>
                 <span>{{today_day}}</span>
             </th>
             <th>
@@ -37,19 +41,40 @@
     <tbody>
         <tr>
             <td>
-                Classes
-            </td>
-            <td>
-                {% for schedule in today_schedules_0%}
-                {{schedule}}
+                {% for schedule in today_schedules_0 %}
+                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}}</a>
                 {% endfor %}
             </td>
-            <td>{{today_schedules_1}}</td>
-            <td>{{today_schedules_2}}</td>
-            <td>{{today_schedules_3}}</td>
-            <td>{{today_schedules_4}}</td>
-            <td>{{today_schedules_5}}</td>
-            <td>{{today_schedules_6}}</td>
+            <td>
+                {% for schedule in today_schedules_1 %}
+                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}}</a>
+                {% endfor %}
+            </td>
+            <td>
+                {% for schedule in today_schedules_2 %}
+                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}}</a>
+                {% endfor %}
+            </td>
+            <td>
+                {% for schedule in today_schedules_3 %}
+                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}}</a>
+                {% endfor %}
+            </td>
+            <td>
+                {% for schedule in today_schedules_4 %}
+                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}}</a>
+                {% endfor %}
+            </td>
+            <td>
+                {% for schedule in today_schedules_5 %}
+                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}}</a>
+                {% endfor %}
+            </td>
+            <td>
+                {% for schedule in today_schedules_6 %}
+                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}}</a>
+                {% endfor %}
+            </td>
         </tr>
     </tbody>
 </table>

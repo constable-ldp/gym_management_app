@@ -11,9 +11,9 @@ from datetime import date
 
 def save(schedule):
     sql = """INSERT INTO schedules 
-             (class_date, length_mins, start_time, instructor_id, class_id, room_id)
-              VALUES ( %s, %s, %s, %s, %s,  %s ) RETURNING id"""
-    values = [schedule.class_date, schedule.length_mins, schedule.start_time, schedule.instructor.id,
+             (class_date, start_time, length_mins, instructor_id, class_id, room_id)
+              VALUES ( %s, %s, %s, %s, %s, %s ) RETURNING id"""
+    values = [schedule.class_date, schedule.start_time, schedule.length_mins, schedule.instructor.id,
               schedule.gym_class.id, schedule.room.id]
     results = run_sql(sql, values)
     id = results[0]['id']
@@ -35,7 +35,7 @@ def select_all():
 
 def select_dates():
     schedules_list = []
-    sql = "SELECT * FROM schedules WHERE class_date = %s "
+    sql = "SELECT * FROM schedules WHERE class_date = %s ORDER BY start_time"
     for index in range(7):
         schedules = []
         values = [date.today() + timedelta(days=index)]
@@ -68,11 +68,11 @@ def select(id):
     sql = "SELECT * FROM schedules WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
-    if schedule is not None:
+    if result is not None:
         instructor = instructor_repository.select(result['instructor_id'])
-        gym_class = gym_class_repository.select(result['gym_class_id'])
+        gym_class = gym_class_repository.select(result['class_id'])
         room = room_repository.select(result['room_id'])
-        schedule = Schedule(result['class_date'], result['length_mins'], instructor,
+        schedule = Schedule(result['class_date'], result['start_time'], result['length_mins'], instructor,
                             gym_class, room, result['id'])
     return schedule
 

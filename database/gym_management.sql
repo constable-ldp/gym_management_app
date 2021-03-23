@@ -69,8 +69,8 @@ CREATE TABLE instructor_timetables (
 CREATE TABLE schedules (
     id SERIAL PRIMARY KEY,
     class_date DATE,
-    length_mins INT,
     start_time TIME,
+    length_mins INT,
     instructor_id INT REFERENCES instructor_details(id),
     class_id INT REFERENCES classes(id),
     room_id INT REFERENCES rooms(id)
