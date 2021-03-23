@@ -1,4 +1,4 @@
-from db.run_sql import run_sql
+from database.run_sql import run_sql
 
 from models.instructor import InstructorDetails, InstructorSchedule, InstructorTimetable
 import repositories.instructor_details_repository as details_repository

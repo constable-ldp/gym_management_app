@@ -2,43 +2,29 @@
 
 {% block content %}
 
-<div class="tabset">
-    <input type="radio" name="tabset" id="timetable" hidden aria-hidden="true">
-    <input type="radio" name="tabset" id="instructors" hidden aria-hidden="true">
-    <input type="radio" name="tabset" id="schedule" hidden aria-hidden="true">
-    <ul hidden aria-hidden="true">
-        <li>
-            <label for="timetable">Timetable</label>
-        </li>
-        <li>
-            <label for="instructors">Instructors</label>
-        </li>
-        <li>
-            <label for="scedule">Schedule</label>
-        </li>
-    </ul>
-    <div>
-        <section>
-         <h2>Description</h2>
-         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id elementum neque, ac pharetra tortor. Vivamus ac vehicula augue. Curabitur pretium commodo nisi id pellentesque.
-         </p>
-        </section><section>
-         <h2>Statistics</h2>
-         <p>
-          Sed ut leo in turpis efficitur convallis at bibendum erat. Curabitur in egestas ex. Etiam efficitur sagittis molestie. Praesent condimentum elementum ipsum sit amet euismod. Sed vestibulum, leo ac iaculis fringilla, felis nulla placerat turpis, eu aliquam elit risus vel tellus.
-         </p>
-        </section><section>
-         <h2>Reviews</h2>
-         <p>
-          Donec non nunc ac augue ornare aliquam. Aenean sed volutpat arcu. Sed molestie lacus placerat nisl gravida condimentum.
-         </p>
-        </section><section>
-         <h2>Contact</h2>
-         <p>
-          Nullam nec condimentum lacus. Integer dapibus velit nec ipsum varius, a pharetra arcu imperdiet. Donec pretium libero a tincidunt vulputate. Mauris feugiat tempor lectus, quis placerat mi congue sit amet.
-         </p>
-        </section>
-       </div>
-</div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Week Starting</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+            <th>Sunday</th>
+        </tr>
+        {% for instructor in instructors %}
+        <tr>
+            <td>
+                <a href="/instructors/details/{{instructor.details.id}}">{{instructor.first_name}} {{instructor.last_name}}</a>
+            </td>
+            <td class="hidden">
+                <form action="/instructors/details/{{instructor.details.id}}" method="POST">
+                    <input class="delete" type="submit" value="delete" />
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+
 {% endblock %}

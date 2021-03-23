@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS instructor_timetables;
 DROP TABLE IF EXISTS schedules_members;
 DROP TABLE IF EXISTS schedules;
 DROP TABLE IF EXISTS instructor_schedules;
@@ -5,7 +6,7 @@ DROP TABLE IF EXISTS instructor_details;
 DROP TABLE IF EXISTS classes;
 DROP TABLE IF EXISTS rooms;
 DROP TABLE IF EXISTS members;
-DROP TABLE IF EXISTS instructor_schedules_details
+
 
 CREATE TABLE members (
     id SERIAL PRIMARY KEY,
