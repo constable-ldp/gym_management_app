@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS instructor_details;
 DROP TABLE IF EXISTS classes;
 DROP TABLE IF EXISTS rooms;
 DROP TABLE IF EXISTS members;
+DROP TABLE IF EXISTS instructor_schedules_details
 
 CREATE TABLE members (
     id SERIAL PRIMARY KEY,
@@ -41,11 +42,11 @@ CREATE TABLE instructor_details (
     first_name VARCHAR(255),
     last_name VARCHAR(255),
     date_of_birth DATE
+    instructor_sch_id INT REFERENCES instructor_schedules(id)
 );
 
 CREATE TABLE instructor_schedules (
     id SERIAL PRIMARY KEY,
-    week_start DATE,
     monday BOOLEAN,
     tuesday BOOLEAN,
     wednesday BOOLEAN,
@@ -55,7 +56,13 @@ CREATE TABLE instructor_schedules (
     sunday BOOLEAN,
     start_time TIME,
     end_time TIME,
-    instructor_id INT REFERENCES instructor_details(id)
+);
+
+CREATE TABLE instructor_schedules_details (
+    id SERIAL PRIMARY KEY,
+    week_start DATE,
+    i_details_id INT REFERENCES instructor_details(id) ON DELETE CASCADE,
+    i_schedules_id INT REFERENCES instructor_schedules(id) ON DELETE CASCADE
 );
 
 CREATE TABLE schedules (

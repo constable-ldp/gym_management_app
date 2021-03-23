@@ -20,5 +20,12 @@ class InstructorSchedule:
         self.sunday = sunday
         self.start_time = start_time
         self.end_time = end_time
-        self.instructor = instructor
+        self.id = id
+
+class InstructorSchDets:
+    
+    def __init__(self, week_start_date, detail, schedule, id=None):
+        self.week_start_date = week_start_date
+        self.detail = detail
+        self.schedule = schedule
         self.id = id
