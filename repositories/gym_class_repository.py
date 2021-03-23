@@ -14,7 +14,7 @@ def save(gym_class):
 
 def select_all():
     gym_classes = []
-    sql = "SELECT * FROM classes"
+    sql = "SELECT * FROM classes ORDER BY id"
     results = run_sql(sql)
     for row in results:
         gym_class = GymClass(row['class_name'], row['description'], row['min_time'], 
@@ -36,14 +36,14 @@ def select(id):
 
 def update(gym_class):
     sql = """UPDATE classes
-             SET name = %s,
+             SET class_name = %s,
                  description = %s,
                  min_time = %s,
                  max_time = %s,
                  min_capacity = %s,
                  max_capacity= %s
              WHERE id = %s"""
-    values = [gym_class.name, gym_class.description, gym_class.min_time, gym_class.max_time,
+    values = [gym_class.class_name, gym_class.description, gym_class.min_time, gym_class.max_time,
               gym_class.min_capacity, gym_class.max_capacity, gym_class.id]
     run_sql(sql, values)
 

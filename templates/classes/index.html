@@ -14,6 +14,11 @@
     <section>
         {{class.description}}
     </section>
+    <section>
+        <form action="/classes/{{class.id}}/delete" method="POST">
+            <input class="delete" type="submit" value="delete" />
+        </form>
+    </section>
 {%endfor%}
 
 {% endblock %}
