@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                <span class="day">{{today}}</span>
+                <span>{{today_day}}</span>
+            </th>
+            <th>
+                <span class="day">{{today_plus2}}</span>
+                {{today_plus2_day}}
+            </th>
+            <th>
+                <span class="day">{{today_plus3}}</span>
+                {{today_plus3_day}}
+            </th>
+            <th>
+                <span class="day">{{today_plus4}}</span>
+                {{today_plus4_day}}
+            </th>
+            <th>
+                <span class="day">{{today_plus5}}</span>
+                {{today_plus5_day}}
+            </th>
+            <th>
+                <span class="day">{{today_plus6}}</span>
+                {{today_plus6_day}}
+            </th>
+            <th>
+                <span class="day">{{today_plus7}}</span>
+                {{today_plus7_day}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Classes
+            </td>
+            <td>
+                {% for schedule in today_schedules_0%}
+                {{schedule}}
+                {% endfor %}
+            </td>
+            <td>{{today_schedules_1}}</td>
+            <td>{{today_schedules_2}}</td>
+            <td>{{today_schedules_3}}</td>
+            <td>{{today_schedules_4}}</td>
+            <td>{{today_schedules_5}}</td>
+            <td>{{today_schedules_6}}</td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}

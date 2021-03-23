@@ -45,3 +45,4 @@ def delete(id):
     sql = "DELETE FROM rooms WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
