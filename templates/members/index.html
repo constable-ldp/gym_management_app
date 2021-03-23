@@ -2,8 +2,6 @@
 
 {% block content %}
 
-    <form action=""></form>
-
     <table>
         <tr>
             <th>Name</th>
@@ -40,6 +38,11 @@
             </td>
             <td>
                 <a href="/members/{{member.id}}">{{member.premium}}</a>
+            </td>
+            <td class="hidden">
+                <form action="/members/{{member.id}}/delete" method="POST">
+                    <input class="delete" type="submit" value="delete" />
+                </form>
             </td>
         </tr>
         {% endfor %}
