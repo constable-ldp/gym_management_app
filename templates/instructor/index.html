@@ -16,10 +16,17 @@
         </tr>
         {% for instructor in instructors %}
         <tr>
-            <td> {{instructor.detail.first_name}}</td>
             <td>
-                <a href="/instructors/details/{{instructor.detail.id}}">{{instructor.first_name}} {{instructor.last_name}}</a>
+                <a href="/instructors/details/{{instructor.detail.id}}">{{instructor.detail.first_name}} {{instructor.detail.last_name}}</a>
             </td>
+            <td>{{instructor.week_start_date}}</td>
+            <td>{{instructor.schedule.monday}}</td>
+            <td>{{instructor.schedule.tuesday}}</td>
+            <td>{{instructor.schedule.wednesday}}</td>
+            <td>{{instructor.schedule.thursday}}</td>
+            <td>{{instructor.schedule.friday}}</td>
+            <td>{{instructor.schedule.saturday}}</td>
+            <td>{{instructor.schedule.sunday}}</td>
             <td class="hidden">
                 <form action="/instructors/details/{{instructor.id}}" method="POST">
                     <input class="delete" type="submit" value="delete" />
@@ -27,5 +34,8 @@
             </td>
         </tr>
         {% endfor %}
+<section><a href="/instructors/new_instructor">Add Instructor</a></section>
+<section><a href="/instructors/new_schedule">Add Schedule</a></section>
+<section><a href="/instructors/new_timetable">Add Timetable</a></section>
 
 {% endblock %}

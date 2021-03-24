@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Add a Lesson</h1>
+<h1>Add a Class</h1>
 
 <form action="/schedule/new" method="post">
 
-    <label for="class_date"></label>
+    <label for="class_date">Date:</label>
     <input type="date" name="class_date" id="class_date" required>
 
-    <label for="start_time"></label>
+    <label for="start_time">Time:</label>
     <input type="time" name="start_time" id="start_time" required>
 
-    <label for="length_mins"></label>
+    <label for="length_mins">Length:</label>
     <input type="number" name="length_mins" id="length_mins" required>
 
     <label for="instructor">Select an instructor:</label>
