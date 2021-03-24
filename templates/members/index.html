@@ -2,6 +2,12 @@
 
 {% block content %}
 
+{% block head %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+{% endblock %}
+
 <a href="/members/new">Add Member</a>
 
     <table>

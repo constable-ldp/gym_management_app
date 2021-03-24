@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+<a href="/rooms/new">Add Room</a>
+
 {%for room in rooms%}
     <section>
         {{room.room_name}}

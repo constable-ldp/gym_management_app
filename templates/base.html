@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+    {% block head %}
+    {% endblock %}
     <title>Gym Management App</title>
 </head>
 <body>
     <nav>
-        <ul>
+        <ul class="main-nav">
             <li><a href="/">Home</a></li>
             <li><a href="/schedule">Schedule</a></li>
             <li><a href="/members">Members</a></li>

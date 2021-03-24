@@ -32,7 +32,7 @@ def select(id):
 
 def update(room):
     sql = """UPDATE rooms
-             SET room_name = %s, capacity = %s, desription = %s
+             SET room_name = %s, capacity = %s, description = %s
              WHERE id = %s"""
     values = [room.room_name, room.capacity, room.description, room.id]
     run_sql(sql, values)

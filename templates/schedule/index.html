@@ -1,11 +1,21 @@
 {% extends "base.html" %}
+
+{% block head %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='schedule.css') }}">
+
+{% endblock %}
+
+
+
 {% block content %}
+
 
 
 <a href="/schedule/new">Add Class</a>
 
 
-<table>
+<table class="center">
     <thead>
         <tr>
             <th>

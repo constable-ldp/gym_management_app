@@ -1,0 +1,30 @@
+tbody td:hover { 
+    background: #ddd; 
+    background-color: rgb(230, 230, 230);
+}
+
+td { 
+    border: 1px solid #000; 
+    border-collapse: 
+    collapse;
+    padding: 1% 
+}
+
+td a { 
+    display: block; 
+    padding: 5px 20px; 
+}
+
+body{
+    text-align: center;
+    background-color: rgb(230, 230, 230);
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+    border-color: black;
+    background-color: rgb(250, 250, 250);
+    
+  }
