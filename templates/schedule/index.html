@@ -20,6 +20,7 @@
 <table class="center">
     <thead>
         <tr>
+            <th></th>
             <th>
                 <p>{{today}}</p> 
                 <p>{{today_day}}</p>
@@ -52,9 +53,10 @@
     </thead>
     <tbody>
         <tr>
+            <th>Classes</th>
             <td>
                 {% for schedule in today_schedules_0 %}
-                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}} {{schedule.start_time}}</a>
+                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}} {{schedule.start_time}} {{current}} /{{schedule.gym_class.max_capacity}} </a>
                 {% endfor %}
             </td>
             <td>

@@ -11,3 +11,8 @@ input[type=checkbox]:checked + .collapse {
 .collapse {
     display: none;
 }
+
+body{
+    text-align: center;
+    background-color: rgb(230, 230, 230);
+}
