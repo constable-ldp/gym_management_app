@@ -71,10 +71,13 @@ def selected_members(id):
     return members
 
 def non_selected_members(id):
-    sql = """SELECT members.* FROM members
-             INNER JOIN schedules_members ON schedules_members.member_id = members.id
-             INNER JOIN schedules ON schedules_members.schedule_id = schedules.id
-             WHERE schedule_id != %s"""
+    sql = """SELECT members.id FROM members
+             FULL OUTER JOIN schedules_members ON schedules_members.member_id = members.id
+             WHERE schedule_id = %s"""
     values = [id]
-    members = run_sql(sql, values)
+    rows = run_sql(sql, values)
+    member_ids = tuple([row[0] for row in rows])
+    sql2 = """SELECT * FROM members WHERE id NOT IN %s"""
+    values2 = [member_ids]
+    members = run_sql(sql2, values2)
     return members

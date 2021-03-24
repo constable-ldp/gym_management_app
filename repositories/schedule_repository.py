@@ -7,6 +7,7 @@ from models.schedule_member import ScheduleMember
 import repositories.instructor_details_repository as instructor_repository
 import repositories.gym_class_repository as gym_class_repository
 import repositories.room_repository as room_repository
+import repositories.member_repository as member_repository
 from datetime import timedelta
 from datetime import date
 
