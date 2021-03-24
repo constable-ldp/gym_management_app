@@ -4,6 +4,12 @@
 
 <h1>{{schedule.gym_class.class_name}}</h1>
 
+{% for member in members %}
 
+{{ member.first_name }} {{ member.last_name }}
+
+{% endfor %}
+
+<a href="/schedule/{{schedule.id}}/new">Add Member</a>
 
 {% endblock %}

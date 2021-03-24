@@ -1,9 +1,11 @@
 from flask import Blueprint, Flask, redirect, render_template, request
 from models.schedule import Schedule
+from models.schedule_member import ScheduleMember
 import repositories.schedule_repository as schedule_repository
 import repositories.instructor_details_repository as details_repository
 import repositories.gym_class_repository as gym_class_repository
 import repositories.room_repository as room_repository
+import repositories.member_repository as member_repository
 from datetime import date
 from datetime import timedelta
 import calendar
@@ -68,9 +70,21 @@ def add_schedule():
 @schedule_blueprint.route('/schedule/<id>')
 def show_schedule(id):
     schedule = schedule_repository.select(id)
-    return render_template('schedule/show.html', schedule=schedule)
+    selected_members = member_repository.selected_members(id)
+    return render_template('schedule/show.html', schedule=schedule, members=selected_members)
 
-@schedule_blueprint.route('/schedule/<id>/<member_id>')
-def show_schedule(id, member_id):
+@schedule_blueprint.route('/schedule/<id>/new')
+def new_member(id):
     schedule = schedule_repository.select(id)
-    return render_template('schedule/show.html', schedule=schedule)
+    members = member_repository.non_selected_members(id)
+    return render_template('schedule/new_member.html', schedule=schedule, members=members)
+
+@schedule_blueprint.route('/schedule/<id>/new', methods=['POST'])
+def add_member(id):
+    member_id = request.form['member_id']
+    member = member_repository.select(member_id)
+    schedule = schedule_repository.select(id)
+    schedule_member = ScheduleMember(member, schedule)
+    schedule_repository.save_member(schedule_member)
+    return redirect('/schedule')
+

@@ -3,6 +3,7 @@ from models.schedule import Schedule
 from models.instructor import InstructorDetails
 from models.gym_class import GymClass
 from models.room import Room
+from models.schedule_member import ScheduleMember
 import repositories.instructor_details_repository as instructor_repository
 import repositories.gym_class_repository as gym_class_repository
 import repositories.room_repository as room_repository
@@ -85,5 +86,11 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-
-
+def save_member(member):
+    sql = """INSERT INTO schedules_members (member_id, schedule_id)
+             VALUES (%s, %s)
+             RETURNING id"""
+    values = [member.member.id, member.schedule.id]
+    results = run_sql(sql, values)
+    id = results[0]['id']
+    member.id = id

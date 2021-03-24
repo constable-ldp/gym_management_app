@@ -61,3 +61,20 @@ def delete(id):
     sql = "DELETE FROM members WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
+def selected_members(id):
+    sql = """SELECT members.* FROM members
+             INNER JOIN schedules_members ON schedules_members.member_id = members.id
+             WHERE schedules_members.schedule_id = %s"""
+    values = [id]
+    members = run_sql(sql, values)
+    return members
+
+def non_selected_members(id):
+    sql = """SELECT members.* FROM members
+             INNER JOIN schedules_members ON schedules_members.member_id = members.id
+             INNER JOIN schedules ON schedules_members.schedule_id = schedules.id
+             WHERE schedule_id != %s"""
+    values = [id]
+    members = run_sql(sql, values)
+    return members

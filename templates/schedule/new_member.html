@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="/schedule/{{schedule.id}}/new"" method="post">
+    <label for="member">Select an member:</label>
+    <select name="member_id" id="member">
+        {% for member in members %}
+            <option value="{{ member.id }}">{{ member.first_name }} {{ member.last_name }}</option>
+        {% endfor %}
+    </select>
+
+
+    <section>
+        <input type="submit" value="Add Member">
+    </section>
+</form>
+{% endblock %}
