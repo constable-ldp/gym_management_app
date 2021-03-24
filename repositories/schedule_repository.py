@@ -23,15 +23,15 @@ def save(schedule):
 
 def select_all():
     schedules = []
-    sql = "SELECT * FROM schedules"
+    sql = "SELECT * FROM schedules ORDER BY class_date"
     results = run_sql(sql)
     for row in results:
         instructor = instructor_repository.select(row['instructor_id'])
-        gym_class = gym_class_repository.select(row['gym_class_id'])
+        gym_class = gym_class_repository.select(row['class_id'])
         room = room_repository.select(row['room_id'])
-        schedule = Schedule(row['class_date'], row['length_mins'], row['start_time'], instructor,
+        schedule = Schedule(row['class_date'], row['start_time'], row['length_mins'], instructor,
                             gym_class, room, row['id'])
-        scheules.append(schedule)
+        schedules.append(schedule)
     return schedules
 
 
@@ -47,7 +47,7 @@ def select_dates():
                 instructor = instructor_repository.select(row['instructor_id'])
                 gym_class = gym_class_repository.select(row['class_id'])
                 room = room_repository.select(row['room_id'])
-                schedule = Schedule(row['class_date'], row['length_mins'], row['start_time'], instructor,
+                schedule = Schedule(row['class_date'],  row['start_time'], row['length_mins'], instructor,
                                     gym_class, room, row['id'])
                 schedules.append(schedule)
         else:

@@ -88,3 +88,8 @@ def add_member(id):
     schedule_repository.save_member(schedule_member)
     return redirect('/schedule')
 
+@schedule_blueprint.route('/schedule/all')
+def show_all():
+    schedules = schedule_repository.select_all()
+    return render_template('schedule/all.html', schedules=schedules)
+

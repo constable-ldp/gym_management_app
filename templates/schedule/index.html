@@ -14,37 +14,39 @@
 
 <a href="/schedule/new">Add Class</a>
 
+<a href="/schedule/all">Show All</a>
+
 
 <table class="center">
     <thead>
         <tr>
             <th>
-                <span>{{today}}</span>
-                <span>{{today_day}}</span>
+                <p>{{today}}</p> 
+                <p>{{today_day}}</p>
             </th>
             <th>
-                <span class="day">{{today_plus2}}</span>
-                {{today_plus2_day}}
+                <p>{{today_plus2}}</p>
+                <p>{{today_plus2_day}}</p>
             </th>
             <th>
-                <span class="day">{{today_plus3}}</span>
-                {{today_plus3_day}}
+                <p>{{today_plus3}}</p>
+                <p>{{today_plus3_day}}</p>
             </th>
             <th>
-                <span class="day">{{today_plus4}}</span>
-                {{today_plus4_day}}
+                <p>{{today_plus4}}</p>
+                <p>{{today_plus4_day}}</p>
             </th>
             <th>
-                <span class="day">{{today_plus5}}</span>
-                {{today_plus5_day}}
+                <p>{{today_plus5}}</p>
+                <p>{{today_plus5_day}}</p>
             </th>
             <th>
-                <span class="day">{{today_plus6}}</span>
-                {{today_plus6_day}}
+                <p>{{today_plus6}}</p>
+                <p>{{today_plus6_day}}</p>
             </th>
             <th>
-                <span class="day">{{today_plus7}}</span>
-                {{today_plus7_day}}
+                <p>{{today_plus7}}</p>
+                <p>{{today_plus7_day}}</p>
             </th>
         </tr>
     </thead>
@@ -52,37 +54,37 @@
         <tr>
             <td>
                 {% for schedule in today_schedules_0 %}
-                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}}</a>
+                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}} {{schedule.start_time}}</a>
                 {% endfor %}
             </td>
             <td>
                 {% for schedule in today_schedules_1 %}
-                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}}</a>
+                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}} {{schedule.start_time}}</a>
                 {% endfor %}
             </td>
             <td>
                 {% for schedule in today_schedules_2 %}
-                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}}</a>
+                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}} {{schedule.start_time}}</a>
                 {% endfor %}
             </td>
             <td>
                 {% for schedule in today_schedules_3 %}
-                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}}</a>
+                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}} {{schedule.start_time}}</a>
                 {% endfor %}
             </td>
             <td>
                 {% for schedule in today_schedules_4 %}
-                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}}</a>
+                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}} {{schedule.start_time}}</a>
                 {% endfor %}
             </td>
             <td>
                 {% for schedule in today_schedules_5 %}
-                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}}</a>
+                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}} {{schedule.start_time}}</a>
                 {% endfor %}
             </td>
             <td>
                 {% for schedule in today_schedules_6 %}
-                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}}</a>
+                    <a href="/schedule/{{schedule.id}}">{{schedule.gym_class.class_name}} {{schedule.start_time}}</a>
                 {% endfor %}
             </td>
         </tr>

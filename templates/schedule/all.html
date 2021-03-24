@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<ul>
+    {% for schedule in schedules %}
+    <li> 
+        {{schedule.class_date}} {{schedule.gym_class.class_name}} 
+        {{schedule.start_time}} {{schedule.instructor.first_name}}
+        {{schedule.instructor.last_name}}
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

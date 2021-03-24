@@ -77,7 +77,11 @@ def non_selected_members(id):
     values = [id]
     rows = run_sql(sql, values)
     member_ids = tuple([row[0] for row in rows])
-    sql2 = """SELECT * FROM members WHERE id NOT IN %s"""
-    values2 = [member_ids]
-    members = run_sql(sql2, values2)
+    if member_ids == ():
+        sql2 = "SELECT * FROM members"
+        members = run_sql(sql2)
+    else:
+        sql2 = """SELECT * FROM members WHERE id NOT IN %s"""
+        values2 = [member_ids]
+        members = run_sql(sql2, values2)
     return members
