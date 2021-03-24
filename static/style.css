@@ -16,3 +16,7 @@ body{
     text-align: center;
     background-color: rgb(230, 230, 230);
 }
+
+li {
+    list-style-type: none;
+  }

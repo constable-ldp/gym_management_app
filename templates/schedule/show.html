@@ -3,13 +3,26 @@
 {% block content %}
 
 <h1>{{schedule.gym_class.class_name}}</h1>
+<h2>{{schedule.start_time}}</h2>
+<h3>{{schedule.length_mins}} mins</h3>
+<h3>Led by {{schedule.instructor.first_name}} {{schedule.instructor.last_name}}</h3>
+<h3>{{current_cap}} / {{schedule.gym_class.max_capacity}}</h3>
+<h3>{{schedule.room.room_name}}</h3>
+
+<ul>
+
 
 {% for member in members %}
 
-{{ member.first_name }} {{ member.last_name }}
+<li>{{ member.first_name }} {{ member.last_name }}</li>
 
 {% endfor %}
-
+</ul>
+{% if current_cap < schedule.gym_class.max_capacity %}
 <a href="/schedule/{{schedule.id}}/new">Add Member</a>
+{% endif %}
+
+<a href="/schedule/{{schedule.id}}/remove">Remove Member</a>
+
 
 {% endblock %}

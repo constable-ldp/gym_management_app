@@ -69,9 +69,10 @@ def add_schedule():
 
 @schedule_blueprint.route('/schedule/<id>')
 def show_schedule(id):
+    current_cap = schedule_repository.count_member(id)
     schedule = schedule_repository.select(id)
     selected_members = member_repository.selected_members(id)
-    return render_template('schedule/show.html', schedule=schedule, members=selected_members)
+    return render_template('schedule/show.html', schedule=schedule, members=selected_members, current_cap=current_cap[0][0])
 
 @schedule_blueprint.route('/schedule/<id>/new')
 def new_member(id):
@@ -93,3 +94,14 @@ def show_all():
     schedules = schedule_repository.select_all()
     return render_template('schedule/all.html', schedules=schedules)
 
+@schedule_blueprint.route('/schedule/<id>/remove')
+def remove_select_member(id):
+    schedule = schedule_repository.select(id)
+    members = member_repository.selected_members(id)
+    return render_template('schedule/remove_member.html', schedule=schedule, members=members)
+
+@schedule_blueprint.route('/schedule/<id>/remove', methods=['POST'])
+def remove_member(id):
+    member_id = request.form['member_id']
+    schedule_repository.remove_member(id, member_id)
+    return redirect('/schedule')

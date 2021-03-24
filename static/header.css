@@ -26,3 +26,9 @@
     text-align: center;
     background-color: rgb(230, 230, 230);
 }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }

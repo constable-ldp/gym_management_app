@@ -95,3 +95,14 @@ def save_member(member):
     results = run_sql(sql, values)
     id = results[0]['id']
     member.id = id
+
+def count_member(id):
+    sql = """SELECT COUNT(member_id) FROM schedules_members WHERE schedule_id = %s"""
+    values = [id]
+    count = run_sql(sql, values)
+    return count
+
+def remove_member(id, member_id):
+    sql = "DELETE FROM schedules_members WHERE schedule_id = %s AND member_id = %s"
+    values = [id, member_id]
+    run_sql(sql, values)
