@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form action="/instructors/{{instructor_schedule.id}}" method="post">
+<form action="/instructors/schedule/{{schedule.id}}" method="post">
     <section>
         <label for="name">Nickname:</label>
-        <input type="text" name="name" id="name" value="{{instructor_schedule.nickname}}" required>
+        <input type="text" name="name" id="name" value="{{schedule.nickname}}" required>
     </section>   
     <section>
         <label for="monday">Monday:</label>
@@ -36,14 +36,14 @@
     </section>
     <section>
         <label for="start_time">Start Time:</label>
-        <input type="time" name="start_time" id="start_time" value="{{instructor_schedule.start_time}}" required>
+        <input type="time" name="start_time" id="start_time" value="{{schedule.start_time}}" required>
     </section>
     <section>
         <label for="end_time">End Time:</label>
-        <input type="time" name="end_time" id="end_time" value="{{instructor_schedule.end_time}}" required>
+        <input type="time" name="end_time" id="end_time" value="{{schedule.end_time}}" required>
     </section>
     <section>
-        <input type="submit" value="Add Room">
+        <input type="submit" value="Edit Instructor">
     </section>
 </form>
 

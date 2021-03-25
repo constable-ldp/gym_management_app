@@ -33,7 +33,7 @@ def select_all():
 
 def update(instructor):
     sql = """UPDATE instructor_details
-             SET name = %s, last_name = %s, date_of_birth = %s
+             SET first_name = %s, last_name = %s, date_of_birth = %s
              WHERE id = %s"""
     values = [instructor.first_name, instructor.last_name, instructor.date_of_birth, instructor.id]
     run_sql(sql, values)

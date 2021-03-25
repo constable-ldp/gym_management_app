@@ -11,6 +11,7 @@
 <a href="/classes/new">Add Class</a>
 
 {%for class in classes%}
+<div class="centre-classes">
     <section>
         {{class.class_name}}
     </section>
@@ -31,6 +32,8 @@
             <input class="delete" type="submit" value="delete" />
         </form>
     </section>
+</div>
+
 {%endfor%}
 
 {% endblock %}

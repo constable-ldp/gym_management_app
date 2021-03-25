@@ -4,6 +4,7 @@
 <a href="/rooms/new">Add Room</a>
 
 {%for room in rooms%}
+<div class="centre-rooms">
     <section>
         {{room.room_name}}
     </section>
@@ -21,6 +22,7 @@
             <input room="delete" type="submit" value="delete" />
         </form>
     </section>
+</div>
 {%endfor%}
 
 {% endblock %}

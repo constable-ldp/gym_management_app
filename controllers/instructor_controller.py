@@ -61,3 +61,37 @@ def add_timetable():
     timetable = InstructorTimetable(start_date, instructor, schedule, id)
     timetable_repository.save(timetable)
     return redirect('/instructors')
+
+@instructors_blueprint.route('/instructors/schedule/<id>')
+def e_schedule(id):
+    schedule = schedule_repository.select(id)
+    return render_template('instructor/edit_sch.html', schedule=schedule)
+
+@instructors_blueprint.route('/instructors/schedule/<id>', methods=['POST'])
+def edit_schedule(id):
+    nickname = request.form['name']
+    variables = [False] * 7
+    strings = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+    for index in range(len(variables)):
+        if request.form.get(strings[index]):
+            variables[index] = True
+    start_time = request.form['start_time']
+    end_time = request.form['end_time']
+    instructor = InstructorSchedule(nickname, variables[0], variables[1], variables[2], variables[3],
+                                    variables[4], variables[5], variables[6], start_time, end_time, id)   
+    schedule_repository.update(instructor)
+    return redirect('/instructors')
+
+@instructors_blueprint.route('/instructors/details/<id>')
+def e_details(id):
+    details = details_repository.select(id)
+    return render_template('instructor/edit_dets.html', details=details)
+
+@instructors_blueprint.route('/instructors/details/<id>', methods=['POST'])
+def edit_details(id):
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    date_of_birth = request.form['date_of_birth']
+    instructor = InstructorDetails(first_name, last_name, date_of_birth, id)   
+    details_repository.update(instructor)
+    return redirect('/instructors')
