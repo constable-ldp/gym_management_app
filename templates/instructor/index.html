@@ -28,7 +28,7 @@
             <td>{{instructor.schedule.saturday}}</td>
             <td>{{instructor.schedule.sunday}}</td>
             <td class="hidden">
-                <form action="/instructors/details/{{instructor.id}}" method="POST">
+                <form action="/instructors/delete" method="POST">
                     <input class="delete" type="submit" value="delete" />
                 </form>
             </td>

@@ -85,3 +85,16 @@ def non_selected_members(id):
         values2 = [member_ids]
         members = run_sql(sql2, values2)
     return members
+
+def sort(type):
+    members = []
+    sql = "SELECT * FROM members ORDER BY %s"
+    values = [type]
+    results = run_sql(sql, values)
+    for row in results:
+        member = Member(row['first_name'], row['last_name'], row['email'], row['phone'],
+                        row['date_of_birth'], row['membership'], row['premium'], 
+                        row['member_since'], row['member_until'], row['id'])
+        members.append(member)
+    return members
+
