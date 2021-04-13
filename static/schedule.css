@@ -5,8 +5,7 @@ tbody td:hover {
 
 td { 
     border: 1px solid #000; 
-    border-collapse: 
-    collapse;
+    border-collapse: collapse;
     width: 120px;
     height: 150px;
     padding: 10px

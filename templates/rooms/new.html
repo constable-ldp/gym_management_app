@@ -1,4 +1,12 @@
 {% extends "base.html" %}
+
+{% block head %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='rooms.css') }}">
+
+{% endblock %}
+
+
 {% block content %}
 
 <form action="/rooms/new" method="post">

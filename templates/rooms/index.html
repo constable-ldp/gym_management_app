@@ -1,28 +1,30 @@
 {% extends "base.html" %}
+
+{% block head %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='rooms.css') }}">
+
+{% endblock %}
+
+
 {% block content %}
-
-<a href="/rooms/new">Add Room</a>
-
-{%for room in rooms%}
-<div class="centre-rooms">
-    <section>
-        {{room.room_name}}
-    </section>
-    <section>
-        {{room.description}}
-    </section>
-    <section>
-        {{room.capacity}}
-    </section>
-    <section>
+<div>
+    <a href="/rooms/new">Add Room</a>
+</div>
+<div class="rooms-grid">
+    {%for room in rooms%}
+    <div class="grid-item">
+        <p>Name: {{room.room_name}}</p>
+        <p>Description: {{room.description}}</p>
+        <p>Capacity: {{room.capacity}}</p>
+        
+        
         <a href="/rooms/{{room.id}}">Edit</a>
-    </section>
-    <section>
         <form action="/rooms/{{room.id}}/delete" method="POST">
             <input room="delete" type="submit" value="delete" />
         </form>
-    </section>
+    </div>
+    {%endfor%}
 </div>
-{%endfor%}
 
 {% endblock %}

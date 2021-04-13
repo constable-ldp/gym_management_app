@@ -1,0 +1,31 @@
+body {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    background-color:#5b5b5b;
+    margin: 0;
+}
+
+.rooms-grid {
+    display: grid;
+    /* grid-area: article; */
+    grid-gap: 10px 10px;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+
+}
+
+.grid-item {
+    margin: 20px;
+    background-color: rgb(250, 250, 250);
+    text-align: center;
+    border: 1px solid;
+    border-color: #04c2c9;
+    color: #fff;
+    background: #333;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 1px 6px #04c2c9, 0 1px 4px #04c2c9;
+}
+
+p {
+    padding: 5px;
+}
