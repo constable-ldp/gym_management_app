@@ -3,12 +3,11 @@ from models.gym_class import GymClass
 
 def save(gym_class):
     sql = """INSERT INTO classes
-             (class_name, description, min_time, max_time, min_capacity, max_capacity) 
+             (class_name, description, max_time, capacity) 
              VALUES ( %s, %s, %s, %s, %s, %s ) 
              RETURNING id"""
-    values = [gym_class.class_name, gym_class.description, gym_class.min_time, 
-              gym_class.max_time, gym_class.min_capacity, gym_class.max_capacity]
-    results = run_sql( sql, values )
+    values = [gym_class.class_name, gym_class.description, gym_class.max_time, gym_class.capacity]
+    results = run_sql(sql, values)
     gym_class.id = results[0]['id']
     return gym_class
 
@@ -17,9 +16,8 @@ def select_all():
     sql = "SELECT * FROM classes ORDER BY id"
     results = run_sql(sql)
     for row in results:
-        gym_class = GymClass(row['class_name'], row['description'], row['min_time'], 
-                             row['max_time'], row['min_capacity'], row['max_capacity'], 
-                             row['id'])
+        gym_class = GymClass(row['class_name'], row['description'], row['max_time'], 
+                             row['capacity'], row['id'])
         gym_classes.append(gym_class)
     return gym_classes
 
@@ -29,8 +27,7 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
-        gym_class = GymClass(result['class_name'], result['description'], result['min_time'], 
-                             result['max_time'], result['min_capacity'], 
+        gym_class = GymClass(result['class_name'], result['description'], result['max_time'],
                              result['max_capacity'], result['id'])
     return gym_class
 
@@ -38,13 +35,11 @@ def update(gym_class):
     sql = """UPDATE classes
              SET class_name = %s,
                  description = %s,
-                 min_time = %s,
                  max_time = %s,
-                 min_capacity = %s,
-                 max_capacity= %s
+                 capacity = %s
              WHERE id = %s"""
-    values = [gym_class.class_name, gym_class.description, gym_class.min_time, gym_class.max_time,
-              gym_class.min_capacity, gym_class.max_capacity, gym_class.id]
+    values = [gym_class.class_name, gym_class.description, gym_class.max_time,
+              gym_class.capacity, gym_class.id]
     run_sql(sql, values)
 
 def delete_all():

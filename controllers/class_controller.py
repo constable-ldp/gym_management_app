@@ -17,11 +17,9 @@ def new_class():
 def add_class():
     name = request.form['name']
     description = request.form['description']
-    min_time = request.form['min_time']
     max_time = request.form['max_time']
-    min_capacity = request.form['min_capacity']
-    max_capacity = request.form['max_capacity']
-    gym_class = GymClass(name, description, min_time, max_time, min_capacity, max_capacity, id)
+    capacity = request.form['capacity']
+    gym_class = GymClass(name, description, max_time, capacity, id)
     class_repository.save(gym_class)
     return redirect('/classes')
 
@@ -35,11 +33,9 @@ def see_class(id):
 def edit_class(id):
     name = request.form['name']
     description = request.form['description']
-    min_time = request.form['min_time']
     max_time = request.form['max_time']
-    min_capacity = request.form['min_capacity']
-    max_capacity = request.form['max_capacity']
-    gym_class = GymClass(name, description, min_time, max_time, min_capacity, max_capacity, id)
+    capacity = request.form['capacity']
+    gym_class = GymClass(name, description, max_time, capacity, id)
     class_repository.update(gym_class)
     return redirect('/classes')
 
