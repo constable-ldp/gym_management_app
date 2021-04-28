@@ -4,7 +4,7 @@ from models.gym_class import GymClass
 def save(gym_class):
     sql = """INSERT INTO classes
              (class_name, description, max_time, capacity) 
-             VALUES ( %s, %s, %s, %s, %s, %s ) 
+             VALUES ( %s, %s, %s, %s ) 
              RETURNING id"""
     values = [gym_class.class_name, gym_class.description, gym_class.max_time, gym_class.capacity]
     results = run_sql(sql, values)
