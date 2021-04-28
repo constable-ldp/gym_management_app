@@ -28,7 +28,7 @@ def select(id):
     result = run_sql(sql, values)[0]
     if result is not None:
         gym_class = GymClass(result['class_name'], result['description'], result['max_time'],
-                             result['max_capacity'], result['id'])
+                             result['capacity'], result['id'])
     return gym_class
 
 def update(gym_class):

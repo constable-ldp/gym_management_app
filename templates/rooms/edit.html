@@ -2,7 +2,7 @@
 
 {% block head %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='rooms.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='rooms_classes.css') }}">
 
 {% endblock %}
 
@@ -20,7 +20,7 @@
             </li>
             <li>
                 <label for="description">Description:</label>
-                <input type="text" name="description" id="description" value="{{room.description}}" required>
+                <textarea type="text" name="description" id="description" value="{{room.description}}" required></textarea>
             </li>
             <li>
                 <input type="submit" value="Edit Room">

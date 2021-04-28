@@ -1,34 +1,37 @@
 {% extends "base.html" %}
+
+{% block head %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='rooms_classes.css') }}">
+
+{% endblock %}
+
 {% block content %}
 
 <form action="/classes/{{gym_class.id}}" method="post">
-    <section>
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" value="{{gym_class.class_name}}" required>
-    </section>
-    <section>
-        <label for="description">Description:</label>
-        <input type="text" name="description" id="description" value="{{gym_class.description}}" required>
-    </section>
-    <section>
-        <label for="min_time">Minimum time:</label>
-        <input type="number" name="min_time" id="min_time" min="0" value="{{gym_class.min_time}}" required>
-    </section>
-    <section>
-        <label for="max_time">Maximum time:</label>
-        <input type="number" name="max_time" id="max_time" min="0" value="{{gym_class.max_time}}" required>
-    </section>
-    <section>
-        <label for="min_capacity">Minimum capacity:</label>
-        <input type="number" name="min_capacity" id="min_capacity" min="0" value="{{gym_class.min_capacity}}" required>
-    </section>
-    <section>
-        <label for="max_capacity">Maximum capacity:</label>
-        <input type="number" name="max_capacity" id="max_capacity" min="0" value="{{gym_class.max_capacity}}" required>
-    </section>
-    <section>
-        <input type="submit" value="Edit Class">
-    </section>
+    <div class="add-edit-box">
+        <ul>
+            <li>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" value="{{gym_class.class_name}}" required>
+            </li>
+            <li>
+                <label for="description">Description:</label>
+                <textarea type="text" name="description" id="description" required>{{gym_class.description}}</textarea>
+            </li>
+            <li>
+                <label for="max_time">Time:</label>
+                <input type="number" name="max_time" id="max_time" min="0" value="{{gym_class.max_time}}" required>
+            </li>
+            <li>
+                <label for="capacity">Capacity:</label>
+                <input type="number" name="capacity" id="capacity" min="0" value="{{gym_class.capacity}}" required>
+            </li>
+            <li>
+                <input type="submit" value="Edit Class">
+            </li>
+        </ul>
+    </div>   
 </form>
 
 {% endblock %}
