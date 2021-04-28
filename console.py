@@ -14,10 +14,10 @@ import datetime
 
 class_1 = GymClass('Hot Yoga', 
                    'Vigorous form of yoga performed in a very warm studio', 
-                    30, 60, 4, 16)
-class_repository.save(class_1)
+                    60, 16)
+class_2 = GymClass('CrossFit', 'Bodyweight workout', 90, 24)
 
-class_2 = GymClass('CrossFit', 'Bodyweight workout', 45, 90, 6, 24)
+class_repository.save(class_1)
 class_repository.save(class_2)
 
 member_1 = Member('John', 'Smith', 'johnsmith@gmail.com', '07595964019', 
