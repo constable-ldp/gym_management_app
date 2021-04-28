@@ -8,7 +8,7 @@
 
 
 {% block content %}
-<div>
+<div class="button">
     <a href="/rooms/new">Add Room</a>
 </div>
 <div class="rooms-grid">
@@ -17,12 +17,12 @@
         <p>Name: {{room.room_name}}</p>
         <p>Description: {{room.description}}</p>
         <p>Capacity: {{room.capacity}}</p>
-        
-        
-        <a href="/rooms/{{room.id}}">Edit</a>
-        <form action="/rooms/{{room.id}}/delete" method="POST">
-            <input room="delete" type="submit" value="delete" />
-        </form>
+        <div class="edit-delete">
+            <a class="edit" href="/rooms/{{room.id}}">Edit</a>
+            <form action="/rooms/{{room.id}}/delete" method="POST">
+                <input class="delete" room="delete" type="submit" value="Delete" />
+            </form>
+        </div>
     </div>
     {%endfor%}
 </div>

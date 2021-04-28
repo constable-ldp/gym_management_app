@@ -16,7 +16,6 @@ ul {
     background-color: #333;
     border-bottom: 3px solid #04c2c9;
     width: 100%;
-    /* padding: 5px; */
   }
 
 .main-nav a {
@@ -61,46 +60,3 @@ nav :hover {
   background-color: rgb(250, 250, 250);
   
   }
-
-
-  .page-link {
-    cursor: pointer;
-  } */
-
-  /* nav .link-wrap {
-    background: #333;
-    height: 0;
-    max-width: 1200px;
-    overflow: hidden;
-    position: absolute;
-    top: 53px;
-    transition: height 0.3s ease-out;
-    width: 100%;
-  }
-  nav .link-wrap.visible {
-    height: 220px;
-  }
-  nav .link-wrap div {
-    cursor: pointer;
-    font-size: 12pt;
-    padding: 12px 20px;
-    text-transform: uppercase;
-    transition: color 0.5s;
-  }
-  nav .link-wrap div:first-child {
-    padding: 25px 20px 12px 20px;
-  }
-  nav .link-wrap div:hover {
-    color: #e31b6d;
-  }
-  nav .mdi-menu {
-    font-size: 30pt;
-    line-height: 36pt;
-    margin: auto 0;
-    position: absolute;
-    right: 5vw;
-    top: 0;
-  }
-  nav .active {
-    color: #e31b6d;
-  } */

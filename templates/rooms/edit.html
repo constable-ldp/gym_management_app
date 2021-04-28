@@ -7,23 +7,25 @@
 {% endblock %}
 
 {% block content %}
-
-<form action="/rooms/{{room.id}}" method="post">
-    <section>
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" value="{{room.room_name}}" required>
-    </section>   
-    <section>
-        <label for="capacity">Capacity:</label>
-        <input type="number" name="capacity" id="capacity" min="0" value="{{room.capacity}}" required>
-    </section>
-    <section>
-        <label for="description">Description:</label>
-        <input type="text" name="description" id="description" value="{{room.description}}" required>
-    </section>
-    <section>
-        <input type="submit" value="Edit Room">
-    </section>
-</form>
-
+<div class="add-edit-box">
+    <form action="/rooms/{{room.id}}" method="post">
+        <ul>
+            <li>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" value="{{room.room_name}}" required>
+            </li>   
+            <li>
+                <label for="capacity">Capacity:</label>
+                <input type="number" name="capacity" id="capacity" min="0" value="{{room.capacity}}" required>
+            </li>
+            <li>
+                <label for="description">Description:</label>
+                <input type="text" name="description" id="description" value="{{room.description}}" required>
+            </li>
+            <li>
+                <input type="submit" value="Edit Room">
+            </li>
+        </ul>
+    </form>
+</div>
 {% endblock %}
