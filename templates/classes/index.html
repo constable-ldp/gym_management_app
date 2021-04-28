@@ -2,38 +2,30 @@
 
 {% block head %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='rooms_classes.css') }}">
 
 {% endblock %}
 
 {% block content %}
 
-<a href="/classes/new">Add Class</a>
+<a class="button" href="/classes/new">Add Class</a>
 
+
+<div class="grid">
 {%for class in classes%}
-<div class="centre-classes">
-    <section>
-        {{class.class_name}}
-    </section>
-    <section>
-        {{class.min_time}} - {{class.max_time}} minutes
-    </section>
-    <section>
-        {{class.min_capacity}} - {{class.max_capacity}} people
-    </section>
-    <section>
-        {{class.description}}
-    </section>
-    <section>
-        <a href="/classes/{{class.id}}">Edit</a>
-    </section>
-    <section>
-        <form action="/classes/{{class.id}}/delete" method="POST">
-            <input class="delete" type="submit" value="delete" />
-        </form>
-    </section>
-</div>
-
+    <div class="grid-item">
+        <p>Name: {{class.class_name}}</p>    
+        <p>Max Time: {{class.max_time}} minutes</p>    
+        <p>Capacity: {{class.capacity}} people</p>    
+        <p>Description: {{class.description}}</p>    
+        <div class="edit-delete">
+            <a class="edit" href="/classes/{{class.id}}">Edit</a>
+            <form action="/classes/{{class.id}}/delete" method="POST">
+                <input class="delete" type="submit" value="Delete" />
+            </form>
+        </div>
+    </div>
 {%endfor%}
+</div>
 
 {% endblock %}

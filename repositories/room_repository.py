@@ -14,7 +14,7 @@ def save(room):
 
 def select_all():
     rooms = []
-    sql = "SELECT * FROM rooms"
+    sql = "SELECT * FROM rooms ORDER BY id"
     results = run_sql(sql)
     for row in results:
         room = Room(row['room_name'], row['capacity'], row['description'], row['id'])

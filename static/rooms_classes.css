@@ -1,11 +1,11 @@
 body {
     font-family: 'Lato', sans-serif;
     text-align: center;
-    background-color: rgb(165, 165, 165);
+    background-color: rgb(211, 211, 211);
     margin: 0;
 }
 
-.rooms-grid {
+.grid {
     display: grid;
     grid-gap: 10px 10px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -44,7 +44,7 @@ p {
         justify-content: center;
         height: 5%;
     }
-    .rooms-grid {
+    .grid {
         display: grid;
         grid-gap: 10px 10px;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -130,7 +130,13 @@ p {
     box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
     border-radius: .15em 0 0 .15em;
     pointer-events: none;
-    content: "\271A";
+    /* content: "\271A"; */
+}
+
+.button a {
+    text-decoration: none;
+    display: block;
+    /* text-align: justify; */
 }
 
 .add-edit-box {
