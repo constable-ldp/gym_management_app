@@ -6,7 +6,7 @@
 <h2>{{schedule.start_time}}</h2>
 <h3>{{schedule.length_mins}} mins</h3>
 <h3>Led by {{schedule.instructor.first_name}} {{schedule.instructor.last_name}}</h3>
-<h3>{{current_cap}} / {{schedule.gym_class.max_capacity}}</h3>
+<h3>{{current_cap}} / {{schedule.gym_class.capacity}}</h3>
 <h3>{{schedule.room.room_name}}</h3>
 
 <ul>
@@ -18,7 +18,7 @@
 
 {% endfor %}
 </ul>
-{% if current_cap < schedule.gym_class.max_capacity %}
+{% if current_cap < schedule.gym_class.capacity %}
 <a href="/schedule/{{schedule.id}}/new">Add Member</a>
 {% endif %}
 

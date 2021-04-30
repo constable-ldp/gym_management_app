@@ -4,56 +4,81 @@
 
 {% block head %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='members.css') }}">
 
 {% endblock %}
 
-<a href="/members/new">Add Member</a>
+<a class="button" href="/members/new">Add Member</a>
 
-    <table class="centre-members">
-        <tr>
-            <th>Name</th>
-            <th>D.O.B</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Member</th>
-            <th>Member Since</th>
-            <th>Member Until</th>
-            <th>Premium</th>
-        </tr>
+    <table class="members-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>D.O.B</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Member</th>
+                <th>Member Since</th>
+                <th>Member Until</th>
+                <th>Premium</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
         {% for member in members %}
-        <tr>
-            
-            <td>
-                <a href="/members/{{member.id}}">{{member.first_name}} {{member.last_name}}</a>
-            </td>
-            <td>
-                <a href="/members/{{member.id}}">{{member.date_of_birth}}</a>
-            </td>
-            <td>
-                <a href="mailto:{{member.email}}">{{member.email}}</a>
-            </td>
-            <td>
-                <a href="tel:{{member.phone}}">{{member.phone}}</a>
-            </td>
-            <td>
-                <a href="/members/{{member.id}}">{{member.membership}}</a>
-            </td> 
-            <td>
-                <a href="/members/{{member.id}}">{{member.member_since}}</a>
-            </td>
-            <td>
-                <a href="/members/{{member.id}}">{{member.member_until}}</a>
-            </td>
-            <td>
-                <a href="/members/{{member.id}}">{{member.premium}}</a>
-            </td>
-            <td class="hidden">
-                <form action="/members/{{member.id}}/delete" method="POST">
-                    <input class="delete" type="submit" value="delete" />
-                </form>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <a href="/members/{{member.id}}">{{member.first_name}} {{member.last_name}}</a>
+                </td>
+                <td>
+                    <a href="/members/{{member.id}}">{{member.date_of_birth}}</a>
+                </td>
+                <td>
+                    <a href="mailto:{{member.email}}">{{member.email}}</a>
+                </td>
+                <td>
+                    <a href="tel:{{member.phone}}">{{member.phone}}</a>
+                </td>
+                {% if member.membership == True %}
+                    <td>
+                        <div class="check"></div>
+                    </td> 
+                    <td>
+                        <a href="/members/{{member.id}}">{{member.member_since}}</a>
+                    </td>
+                    <td>
+                        <a href="/members/{{member.id}}">{{member.member_until}}</a>
+                    </td>
+                    {% if member.premium %}
+                        <td>
+                            <div class="check"></div>
+                        </td>
+                    {% else %}
+                        <td>
+                            <div class="cross"></div>
+                        </td>
+                    {% endif %}
+                {% else %}
+                    <td>
+                        <div class="cross"></div>
+                    </td> 
+                    <td>
+                        <div class="cross"></div>
+                    </td>
+                    <td>
+                        <div class="cross"></div>
+                    </td>
+                    <td>
+                        <div class="cross"></div>
+                    </td>
+                {% endif %}
+                <td class="hidden">
+                    <form action="/members/{{member.id}}/delete" method="POST">
+                        <input class="delete" type="submit" value="Delete" />
+                    </form>
+                </td>
+            </tr>
         {% endfor %}
+        </tbody>
 
 {% endblock %}

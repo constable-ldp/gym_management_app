@@ -13,7 +13,9 @@ def members():
 @members_blueprint.route('/members/<id>')
 def member(id):
     member = member_repository.select(id)
-    return render_template('members/edit.html', member=member)
+    classes = member_repository.select_classes(id)
+    print(classes)
+    return render_template('members/edit.html', member=member, classes=classes)
 
 @members_blueprint.route('/members/<id>', methods=['POST'])
 def edit_member(id):

@@ -1,5 +1,6 @@
 from database.run_sql import run_sql
 from models.member import Member
+import repositories.schedule_repository as schedule_repository
 
 def save(member):
     sql = """INSERT INTO members
@@ -97,4 +98,14 @@ def sort(type):
                         row['member_since'], row['member_until'], row['id'])
         members.append(member)
     return members
+
+def select_classes(id):
+    classes = []
+    sql = "SELECT * FROM schedules_members WHERE member_id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    for row in results:
+        gym_class = schedule_repository.select(row['schedule_id'])
+        classes.append(gym_class)
+    return classes
 

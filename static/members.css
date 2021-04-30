@@ -1,83 +1,38 @@
-body {
-    font-family: 'Lato', sans-serif;
+body{
     text-align: center;
     background-color: rgb(211, 211, 211);
-    margin: 0;
 }
 
-.grid {
-    display: grid;
-    grid-gap: 10px 10px;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-
+.members-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.grid-item {
-    margin: 20px;
-    background-color: rgb(250, 250, 250);
-    text-align: center;
-    border: 1px solid;
-    border-color: #04c2c9;
-    color: #fff;
-    background: #333;
-    margin-left: 5%;
-    margin-right: 5%;
-    box-shadow: 0 1px 6px #04c2c9, 0 1px 4px #04c2c9;
+.members-table thead tr {
+    background-color: #333;
+    color: #ffffff;
+    text-align: left;
 }
 
-p {
-    padding: 5px;
+.members-table th,
+.members-table td {
+    padding: 12px 15px;
 }
 
-.edit-delete {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 5%;
+.members-table tbody tr {
+    border-bottom: 1px solid #dddddd;
 }
 
-@media (max-width: 530px) {
-    .edit-delete {
-        display: flex-inline;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        height: 5%;
-    }
-    .grid {
-        display: grid;
-        grid-gap: 10px 10px;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+.members-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
 }
 
-
-.edit {
-    margin: 5px;
-    text-decoration: none;
-    background-color: #04c2c9;
-    color: #333333;
-    padding: 1.5px 6px 1.5px 6px;
-    border-top: 1px solid #CCCCCC;
-    border-right: 1px solid #333333;
-    border-bottom: 1px solid #333333;
-    border-left: 1px solid #CCCCCC;
-}
-
-.delete {
-    font-family: 'Lato';
-    background-color: rgb(213, 212, 212);
-    color: #333333;
-    padding: 3px;
-    cursor: pointer;
-}
-
-.edit :hover {
-    margin: 5px;
-    text-decoration: none;
-    background-color: #04c2c9;
-    color: #333333;
-    padding: 2px 6px 2px 6px;
+.members-table tbody tr:last-of-type {
+    border-bottom: 2px solid #04c2c9;
 }
 
 .button {
@@ -133,6 +88,24 @@ p {
     /* content: "\271A"; */
 }
 
+.check {
+    display: inline-block;
+    transform: rotate(45deg);
+    height: 18px;
+    width: 8px;
+    border-bottom: 7px solid #78b13f;
+    border-right: 7px solid #78b13f;
+  }
+
+.cross {
+    display: inline-block;
+    transform: rotate(45deg);
+    width: 18px;
+    height: 18px;
+    background: linear-gradient(to bottom, transparent 35%, #d00 35%, #d00 65%,  transparent 65%),
+      linear-gradient(to right, transparent 35%, #d00 35%, #d00 65%, transparent 65%);
+  }
+
 .add-edit-box {
     margin: 20px;
     width: 300px;
@@ -149,7 +122,7 @@ p {
 
 .add-edit-box label {
     display: inline-block;
-    width: 100px;
+    width: 200px;
 }
 
 .add-edit-box textarea {
@@ -160,4 +133,26 @@ p {
 .add-edit-box input {
     display: inline-block;
     width: 200px;   
+}
+
+input[type=checkbox]:checked + .collapse {
+    display: block;
+}
+
+.collapse {
+    display: none;
+}
+
+.classes-list {
+    margin: 20px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(250, 250, 250);
+    text-align: center;
+    border: 1px solid;
+    border-color: #04c2c9;
+    color: #fff;
+    background: #333;
+    box-shadow: 0 1px 6px #04c2c9, 0 1px 4px #04c2c9;
 }

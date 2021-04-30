@@ -23,7 +23,10 @@ class_repository.save(class_2)
 member_1 = Member('John', 'Smith', 'johnsmith@gmail.com', '07595964019', 
                  datetime.date(1997, 5, 17), True, False, datetime.date(2021, 3, 21),
                  datetime.date(2021, 4, 21))
+member_2 = Member('Luke', 'Jones', 'lukejones@gmail.com', '07595964018', 
+                  datetime.date(1992, 1, 15), False, False, None, None)
 member_repository.save(member_1)
+member_repository.save(member_2)
 
 room1 = Room('Room 1', 24, 'Large Room')
 instructor_dets = InstructorDetails('Mary', 'Jones', datetime.date(1992, 3, 12))
