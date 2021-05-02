@@ -1,35 +1,172 @@
-tbody td:hover { 
+.calendar thead tr {
+    background-color: #333;
+    color: #ffffff;
+}
+
+.calendar tbody td {
+    background-color: rgb(211, 211, 211);
+}
+
+.calendar tbody td:hover { 
     background: #ddd; 
-    background-color: rgb(230, 230, 230);
 }
 
-td { 
-    border: 1px solid #000; 
+.calendar tr th {
+    color: white;
+}
+
+.calendar td {
     border-collapse: collapse;
-    width: 120px;
-    height: 150px;
-    padding: 10px
+    width: 150px;
+    height: 180px;
+    padding: 1px;
+    
 }
 
-td a { 
-    display: block; 
+.calendar td a { 
+    display: block;
+    border-radius: 25px;
+    text-decoration: none;
+    padding: 1px;
+
+    /* background-image: linear-gradient(147deg, #3ca55c 0%, #b5ac49 100%); */
+}
+
+.calendar td a:nth-child(1) {
+    background-color: green;
+    color: white;
+}
+.calendar td a:nth-child(2) {
+    background-color: red;
+    color: white;
+}
+.calendar td a:nth-child(3) {
+    background-color: black; 
+    color: white;  
+}
+.calendar td a:nth-child(4) {
+    background-color: purple;
+    color: white;   
+}
+.calendar td a:nth-child(5) {
+    background-color: green;
+    color: white;   
+}
+.calendar td a:nth-child(6) {
+    background-color: red;
+    color: white;   
+}
+.calendar td a:nth-child(7) {
+    background-color: black;
+    color: white;   
+}
+.calendar td a:nth-child(8) {
+    background-color: purple;
+    color: white;   
 }
 
 body{
     text-align: center;
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(211, 211, 211);
 }
-.center {
+.calendar  {
+    margin: 10px;
+    padding: 1px;
     margin-left: auto;
     margin-right: auto;
     border: 2px solid;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
     border-color: black;
-    background-color: rgb(250, 250, 250);
+    background-color: #333;
     
-  }
+}
 
-  p {
+p {
     margin: 0;
     padding: 0;
   }
+
+  .button {
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #ccc;
+    background-image: linear-gradient(top, #eee, #ccc);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+    border: 1px solid #777;
+    padding: 0 1.5em;
+    margin: 0.5em;
+    font: bold 1em/2em Arial, Helvetica;
+    color: #333;
+    text-shadow: 0 1px 0 rgba(255,255,255,.8);
+    border-radius: .2em;
+    box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+}
+
+.button:hover {
+    text-decoration: none;
+    background-color: #ddd;
+    background-image: linear-gradient(top, #fafafa, #ddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');
+}
+
+.button:active {
+    text-decoration: none;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    position: relative;
+    top: 1px;
+}
+
+.button:focus {
+    text-decoration: none;
+    outline: 0;
+    background: #fafafa;
+}
+
+.button:before {
+    text-decoration: none;
+    background: #ccc;
+    background: rgba(0,0,0,.1);
+    float: left;
+    width: 1em;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0 1em 0 -1em;
+    padding: 0 .2em;
+    box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+    border-radius: .15em 0 0 .15em;
+    pointer-events: none;
+    /* content: "\271A"; */
+}
+
+.upcoming-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.upcoming-table thead tr {
+    background-color: #333;
+    color: #ffffff;
+    text-align: left;
+}
+
+.upcoming-table th,
+.upcoming-table td {
+    padding: 12px 15px;
+}
+
+.upcoming-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.upcoming-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.upcoming-table tbody tr:last-of-type {
+    border-bottom: 2px solid #04c2c9;
+}

@@ -14,6 +14,7 @@ schedule_blueprint = Blueprint('schedule', __name__)
 
 @schedule_blueprint.route('/schedule')
 def schedules():
+    rooms = room_repository.select_all()
     schedules = schedule_repository.select_dates()
     schedules_dict = {}
     dates = [date.today()+timedelta(days=i) for i in range(7)]
@@ -24,7 +25,7 @@ def schedules():
         else:
             schedules_dict['today_schedules_' + str(i)] = None
     return render_template('schedule/index.html', schedules=schedules, dates=dates, 
-                            days=days, schedules_dict=schedules_dict)
+                            days=days, schedules_dict=schedules_dict, rooms=rooms)
 
 @schedule_blueprint.route('/schedule/new')
 def new_schedule():
@@ -72,8 +73,15 @@ def add_member(id):
 
 @schedule_blueprint.route('/schedule/all')
 def show_all():
+    upcoming_classes = []
+    previous_classes = []
     schedules = schedule_repository.select_all()
-    return render_template('schedule/all.html', schedules=schedules)
+    for schedule in schedules:
+        if schedule.class_date < date.today():
+            previous_classes.append(schedule)
+        else:
+            upcoming_classes.append(schedule)
+    return render_template('schedule/all.html', previous_classes=previous_classes, upcoming_classes=upcoming_classes)
 
 @schedule_blueprint.route('/schedule/<id>/remove')
 def remove_select_member(id):

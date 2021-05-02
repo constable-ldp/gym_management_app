@@ -1,6 +1,7 @@
 from database.run_sql import run_sql
 from models.member import Member
 import repositories.schedule_repository as schedule_repository
+from datetime import date
 
 def save(member):
     sql = """INSERT INTO members
@@ -105,7 +106,8 @@ def select_classes(id):
     values = [id]
     results = run_sql(sql, values)
     for row in results:
-        gym_class = schedule_repository.select(row['schedule_id'])
-        classes.append(gym_class)
+        schedule = schedule_repository.select(row['schedule_id'])
+        if schedule.class_date >= date.today():
+            classes.append(schedule)
     return classes
 

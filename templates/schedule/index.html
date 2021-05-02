@@ -8,11 +8,11 @@
 
 {% block content %}
 
-<a href="/schedule/new">Add Class</a>
+<a class="button" href="/schedule/new">Add Class to Calendar</a>
 
-<a href="/schedule/all">Show All</a>
+<a class="button" href="/schedule/all">Show All Classes</a>
 
-<table class="center">
+<table class="calendar">
     <thead>
         <tr>
             <th></th>
@@ -26,17 +26,20 @@
         </tr>
     </thead>
     <tbody>
+        {% for room in rooms %}
         <tr>
-            <th>Classes</th>
+            <th>{{room.room_name}}</th>
             {% for name in schedules_dict %}  
                 <td>
                     {% for schedule in schedules_dict[name] %}
-                        {{schedule.start_time}}
-                        <a href="/schedule/{{schedule.id}}"> {{schedule.gym_class.class_name}} </a>
+                        {% if room.room_name == schedule.room.room_name %}
+                            <a href="/schedule/{{schedule.id}}"> {{schedule.start_time}} {{schedule.gym_class.class_name}} </a>
+                        {% endif %}
                     {% endfor %}
                 </td>
-            {%endfor%}
+            {% endfor %}
         </tr>
+        {% endfor %}
     </tbody>
 </table>
 
