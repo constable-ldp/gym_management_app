@@ -8,7 +8,7 @@ instructors_blueprint = Blueprint('instructors', __name__)
 
 @instructors_blueprint.route('/instructors')
 def instructors():
-    instructors = timetable_repository.select_all()
+    instructors = details_repository.select_all()
     return render_template('instructor/index.html', instructors=instructors)
 
 @instructors_blueprint.route('/instructors/new_instructor')
@@ -94,4 +94,9 @@ def edit_details(id):
     date_of_birth = request.form['date_of_birth']
     instructor = InstructorDetails(first_name, last_name, date_of_birth, id)   
     details_repository.update(instructor)
+    return redirect('/instructors')
+
+@instructors_blueprint.route('/instructors/details/<id>/delete', methods=['POST'])
+def delete_instructor(id):
+    details_repository.delete(id)
     return redirect('/instructors')

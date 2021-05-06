@@ -8,7 +8,6 @@ def save(room):
              RETURNING id"""
     values = [room.room_name, room.capacity, room.description]
     results = run_sql(sql, values)
-    print(results)
     room.id = results[0]['id']
     return room
 
