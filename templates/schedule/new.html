@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
 
+{% block head %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='schedule.css') }}">
+
+{% endblock %}
+
 {% block content %}
 <h1>Add a Class</h1>
 
+<div class="add-edit-box">
 <form action="/schedule/new" method="post">
 
     <label for="class_date">Date:</label>
@@ -40,5 +47,6 @@
     </section>
 
 </form>
+</div>
 
 {% endblock %}

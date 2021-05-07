@@ -68,9 +68,9 @@ CREATE TABLE schedules (
     class_date DATE,
     start_time TIME,
     length_mins INT,
-    instructor_id INT REFERENCES instructor_details(id),
-    class_id INT REFERENCES classes(id),
-    room_id INT REFERENCES rooms(id)
+    instructor_id INT REFERENCES instructor_details(id) ON DELETE CASCADE,
+    class_id INT REFERENCES classes(id) ON DELETE CASCADE,
+    room_id INT REFERENCES rooms(id) ON DELETE CASCADE
 );
 
 CREATE TABLE schedules_members (

@@ -1,28 +1,33 @@
 {% extends 'base.html' %}
 
+{% block head %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='schedule.css') }}">
+
+{% endblock %}
+
 {% block content %}
+<div class="add-edit-box">
+    <h1>{{schedule.gym_class.class_name}}</h1>
+    <h2>{{schedule.start_time}}</h2>
+    <h3>{{schedule.length_mins}} mins</h3>
+    <h3>Led by {{schedule.instructor.first_name}} {{schedule.instructor.last_name}}</h3>
+    <h3>{{current_cap}} / {{schedule.gym_class.capacity}}</h3>
+    <h3>{{schedule.room.room_name}}</h3>
+</div>
 
-<h1>{{schedule.gym_class.class_name}}</h1>
-<h2>{{schedule.start_time}}</h2>
-<h3>{{schedule.length_mins}} mins</h3>
-<h3>Led by {{schedule.instructor.first_name}} {{schedule.instructor.last_name}}</h3>
-<h3>{{current_cap}} / {{schedule.gym_class.capacity}}</h3>
-<h3>{{schedule.room.room_name}}</h3>
-
-<ul>
-
-
-{% for member in members %}
-
-<li>{{ member.first_name }} {{ member.last_name }}</li>
-
-{% endfor %}
-</ul>
-{% if current_cap < schedule.gym_class.capacity %}
-<a href="/schedule/{{schedule.id}}/new">Add Member</a>
-{% endif %}
-
-<a href="/schedule/{{schedule.id}}/remove">Remove Member</a>
-
+<div class="add-edit-box">
+    <ul>
+    {% for member in members %}
+    <li>{{ member.first_name }} {{ member.last_name }}</li>
+    {% endfor %}
+    </ul>
+    <div class="add-remove">
+        {% if current_cap < schedule.gym_class.capacity %}
+        <a class="add-remove-member" href="/schedule/{{schedule.id}}/new">Add Member</a>
+        {% endif %}
+        <a class="add-remove-member" href="/schedule/{{schedule.id}}/remove">Remove Member</a>
+    </div>
+</div>
 
 {% endblock %}
