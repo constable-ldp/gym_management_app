@@ -4,10 +4,6 @@
 
 A responsive CRUD application made using Flask, HTML, CSS and postgreSQL, built over 5 days.  
 
-### Purpose
-
-This app was created as part of the CodeClan 
-
 ### Demo
 
 To run the app locally: 
@@ -27,5 +23,7 @@ To run the app locally:
 > flask run
 
 5. View the app at http://localhost:5000/
+
+### Features
 
 ### Challenges & Things I Learnt
